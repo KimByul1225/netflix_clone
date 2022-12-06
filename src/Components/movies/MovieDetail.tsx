@@ -1,14 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
 import { IGetCredit, IGetDetail, getMovieCredit, getMovieDetail } from "../../Api/api";
-
 import * as style from "../styles/style";
 import { makeImagePath } from "../../Utils/util";
-
-
-
 import { useEffect } from "react";
 
 interface IDetailProps {
@@ -59,7 +54,7 @@ function MovieDetail({ category, id }: IDetailProps) {
       ) : (
         <>
           <style.Overlay
-            variants={M.overlayVariants}
+            variants={style.overlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"

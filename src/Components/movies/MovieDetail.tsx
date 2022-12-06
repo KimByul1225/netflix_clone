@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { IGetCredit, IGetDetail, getMovieCredit, getMovieDetail } from "../../Api/api";
 
 import * as style from "../styles/style";
-import { makeImagePath } from "../../utils/utils";
+import { makeImagePath } from "../../Utils/util";
 
 
 

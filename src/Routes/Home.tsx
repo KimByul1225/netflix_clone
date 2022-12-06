@@ -70,9 +70,9 @@ function Home() {
                     </svg>
                     Play
                     </style.PlayBtn>
-                    <H.InfoBtn onClick={() => navigate(`/movies/${nowId}`)}>
-                    ⓘ Information
-                    </H.InfoBtn>
+                    <style.InfoBtn onClick={() => navigate(`/movies/${nowId}`)}>
+                  ⓘ Information
+                </style.InfoBtn>
                 </style.Btn_Container>
                 </style.Title_and_Overview>
             </style.Banner>
@@ -95,7 +95,7 @@ function Home() {
             <MovieSlider category="upcoming" title="Coming soon" data={up_data} />
             </>
         )}
-        <H.Footer>© Copyright 2023. Leesu All rights reserved.</H.Footer>
+        <style.Footer>© Copyright 2023. ToyProject All rights reserved.</style.Footer>
         </style.Wrapper>
     );
 }

@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 import { makeImagePath } from "../Utils/util";
+import Footer from "../Components/common/Footer";
 
 function Home() {
     // Nowplaying API
@@ -71,7 +72,7 @@ function Home() {
                     Play
                     </style.PlayBtn>
                     <style.InfoBtn onClick={() => navigate(`/movies/${nowId}`)}>
-                  ⓘ Information
+                    ⓘ Information
                 </style.InfoBtn>
                 </style.Btn_Container>
                 </style.Title_and_Overview>
@@ -95,7 +96,7 @@ function Home() {
             <MovieSlider category="upcoming" title="Coming soon" data={up_data} />
             </>
         )}
-        <style.Footer>© Copyright 2023. ToyProject All rights reserved.</style.Footer>
+            <Footer/>
         </style.Wrapper>
     );
 }

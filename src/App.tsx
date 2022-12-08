@@ -3,22 +3,22 @@ import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 
 import Home from './Routes/Home';
 
+import Header from './Components/common/Header';
+import Footer from './Components/common/Footer';
+
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home/>}>
-            < Route path="movies/:id" element={< Home />} />
-          </Route>
-        
-          
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home/>}>
+          < Route path="movies/:id" element={< Home />} />
+        </Route>
 
-        </Routes>
-      </BrowserRouter>
-
-    </>
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
   );
 }
 

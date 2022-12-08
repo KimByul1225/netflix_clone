@@ -96,7 +96,6 @@ function Home() {
             <MovieSlider category="upcoming" title="Coming soon" data={up_data} />
             </>
         )}
-            <Footer/>
         </style.Wrapper>
     );
 }

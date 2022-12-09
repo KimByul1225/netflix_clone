@@ -1,14 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMovies, IGetResult } from "../Api/api";
-
 import * as style from "../Components/styles/style";
-
 import MovieSlider from "../Components/movies/MovieSlider";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
-
 import { makeImagePath } from "../Utils/util";
-import Footer from "../Components/common/Footer";
 
 function Home() {
     // Nowplaying API

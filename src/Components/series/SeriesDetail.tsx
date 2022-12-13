@@ -93,7 +93,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                         ) : (
                         "Neonfilx"
                         )}
-                        <M.Modal_Poster
+                        <style.Modal_Poster
                         bgphoto={
                             detailData?.backdrop_path
                             ? makeImagePath(detailData.backdrop_path + "", "w500")
@@ -102,10 +102,10 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                             : null
                         }
                         />
-                        <M.Poster_prevBtn onClick={() => navigate(-1)}>✕</M.Poster_prevBtn>
-                        <M.Poster_Title>{detailData?.name}</M.Poster_Title>
-                        <M.Poster_MiniTitle>{detailData?.name}</M.Poster_MiniTitle>
-                        <M.Poster_infomation_top>
+                        <style.Poster_prevBtn onClick={() => navigate(-1)}>✕</style.Poster_prevBtn>
+                        <style.Poster_Title>{detailData?.name}</style.Poster_Title>
+                        <style.Poster_MiniTitle>{detailData?.name}</style.Poster_MiniTitle>
+                        <style.Poster_infomation_top>
                         <span>{sub_Openday}</span>
                         {detailData?.genres.slice(0, 3).map((genre, index) => (
                             <p id="genrs" key={genre.id}>
@@ -119,24 +119,24 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                             ? (detailData?.vote_average).toFixed(1)
                             : "not vote"}
                         </span>
-                        </M.Poster_infomation_top>
+                        </style.Poster_infomation_top>
 
-                        <M.Poster_infomation_bottom>
-                        <M.Poster_overview>
+                        <style.Poster_infomation_bottom>
+                        <style.Poster_overview>
                             {detailData?.overview === ""
                             ? "There is no overview."
                             : detailData?.overview}
-                        </M.Poster_overview>
-                        <M.Poster_acter_and_director>
-                            <M.Poster_actor>
+                        </style.Poster_overview>
+                        <style.Poster_acter_and_director>
+                            <style.Poster_actor>
                             <span>Casting:</span>
                             {actor?.length === 0
                                 ? "No casting information."
                                 : actor?.map(cast => (
                                     <div key={cast.id}> {cast.name},</div>
                                 ))}
-                            </M.Poster_actor>
-                            <M.Poster_director>
+                            </style.Poster_actor>
+                            <style.Poster_director>
                             <span>
                                 {production?.known_for_department === "Production"
                                 ? "Production:"
@@ -149,9 +149,9 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                                 : production?.known_for_department === "Directing"
                                 ? production.name
                                 : null}
-                            </M.Poster_director>
-                        </M.Poster_acter_and_director>
-                        </M.Poster_infomation_bottom>
+                            </style.Poster_director>
+                        </style.Poster_acter_and_director>
+                        </style.Poster_infomation_bottom>
                     </style.Modal>
                 </>
             )}

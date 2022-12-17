@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as H from "../../styled-components/StyledHome";
+import * as style from "../styles/style";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { makeImagePath } from "../../utils/utils";
@@ -109,14 +109,14 @@ const SeriesSlider: React.FC<IBannerProps> = ({ category, data, title }) => {
   return (
     <>
       {/* -- 슬라이드 영역 -- */}
-      <H.Slider>
-        <H.Slider_Title>{title}</H.Slider_Title>
+      <style.Slider>
+        <style.Slider_Title>{title}</style.Slider_Title>
         <AnimatePresence
           custom={isNext}
           initial={false}
           onExitComplete={toggleLeaving}
         >
-          <H.Row
+          <style.Row
             key={category + index}
             variants={RowVariants}
             initial="hidden"
@@ -126,37 +126,37 @@ const SeriesSlider: React.FC<IBannerProps> = ({ category, data, title }) => {
             transition={{ type: "tween", duration: 1 }}
           >
             {resultsData &&
-              resultsData.map(Series => (
-                <H.RowBox
-                  onClick={() => onBoxClicked(Series.id)}
-                  key={category + Series.id}
+              resultsData.map(data => (
+                <style.RowBox
+                  onClick={() => onBoxClicked(data.id)}
+                  key={category + data.id}
                   variants={BoxHoverVariants}
                   initial="initial"
                   whileHover="hover"
                   transition={{ type: "tween" }}
                   bgphoto={makeImagePath(
-                    Series?.backdrop_path || Series?.poster_path,
+                    data?.backdrop_path || data?.poster_path,
                     "w500"
                   )}
                 >
-                  <H.RowBox_Info variants={H.infoVariants}>
-                    <h4>{Series.name}</h4>
-                  </H.RowBox_Info>
-                </H.RowBox>
+                  <style.RowBox_Info variants={style.infoVariants}>
+                    <h4>{data.name}</h4>
+                  </style.RowBox_Info>
+                </style.RowBox>
               ))}
-          </H.Row>
+          </style.Row>
         </AnimatePresence>
-        <H.prevBtn onClick={prevIndex}>
+        <style.prevBtn onClick={prevIndex}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
             <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
           </svg>
-        </H.prevBtn>
-        <H.nextBtn onClick={nextIndex}>
+        </style.prevBtn>
+        <style.nextBtn onClick={nextIndex}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
             <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
           </svg>
-        </H.nextBtn>
-      </H.Slider>
+        </style.nextBtn>
+      </style.Slider>
 
       {/* -- 오버레이 영역 -- */}
       {tvMatch ? (

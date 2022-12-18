@@ -246,14 +246,7 @@ export const nextBtn = styled.div`
   }
 `;
 
-// ---------- 푸터 영역
-export const Footer = styled.div`
-  position: relative;
-  bottom: 50px;
-  font-size: 13px;
-  text-align: center;
-  color: #7c7c7c;
-`;
+
 
 
 

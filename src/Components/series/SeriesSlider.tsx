@@ -2,9 +2,12 @@ import { useState } from "react";
 import * as style from "../styles/style";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { makeImagePath } from "../../utils/utils";
+
+import { makeImagePath } from "../../Utils/util";
 import { PathMatch, useMatch } from "react-router-dom";
-import { IGetResult } from "../../apis/Movi_Ser_Api";
+
+import { IGetResult } from "../../Api/api";
+
 import SeriesDetail from "./SeriesDetail";
 
 // ----------Variants----

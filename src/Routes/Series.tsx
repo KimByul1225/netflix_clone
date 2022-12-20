@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
-import * as H from "../styled-components/StyledHome";
+import * as style from "../Components/styles/style";
 import { makeImagePath } from "../utils/utils";
 import SeriesSlider from "../Components/Series/SeriesSlider";
 import { getSeries, IGetResult } from "../apis/Movi_Ser_Api";
 import { useNavigate } from "react-router-dom";
 
-function TvSeries() {
+function Series() {
   const navigate = useNavigate();
   // popular API
   const { data: pop_data, isLoading: pop_Loading } = useQuery<IGetResult>(
@@ -34,21 +34,21 @@ function TvSeries() {
   // 배너 영역 > 모달 띄우는 버튼
   const nowId = pop_data?.results[0].id;
   return (
-    <H.Wrapper>
+    <style.Wrapper>
       {pop_Loading && top_Loading && on_Loading ? (
-        <H.Loader>Loading...</H.Loader>
+        <style.Loader>Loading...</style.Loader>
       ) : (
         <>
           <Helmet>
             <title>Neonflix - Series</title>
           </Helmet>
           {/* -- 배너 영역 --  */}
-          <H.Banner bgphoto={makeImagePath(imagePath || "")}>
-            <H.Title_and_Overview>
-              <H.Title>{pop_data?.results[0].name}</H.Title>
-              <H.Overview>{pop_data?.results[0].overview}</H.Overview>
-              <H.Btn_Container>
-                <H.PlayBtn>
+          <style.Banner bgphoto={makeImagePath(imagePath || "")}>
+            <style.Title_and_Overview>
+              <style.Title>{pop_data?.results[0].name}</style.Title>
+              <style.Overview>{pop_data?.results[0].overview}</style.Overview>
+              <style.Btn_Container>
+                <style.PlayBtn>
                   <svg
                     width="24"
                     height="24"
@@ -62,13 +62,13 @@ function TvSeries() {
                     ></path>
                   </svg>
                   Play
-                </H.PlayBtn>
-                <H.InfoBtn onClick={() => navigate(`/tv/${nowId}`)}>
+                </style.PlayBtn>
+                <style.InfoBtn onClick={() => navigate(`/tv/${nowId}`)}>
                   ⓘ Information
-                </H.InfoBtn>
-              </H.Btn_Container>
-            </H.Title_and_Overview>
-          </H.Banner>
+                </style.InfoBtn>
+              </style.Btn_Container>
+            </style.Title_and_Overview>
+          </style.Banner>
           <SeriesSlider
             category="on_the_air"
             title="On the Air"
@@ -86,9 +86,8 @@ function TvSeries() {
           />
         </>
       )}
-      <H.Footer>© Copyright 2023. Leesu All rights reserved.</H.Footer>
-    </H.Wrapper>
+    </style.Wrapper>
   );
 }
 
-export default TvSeries;
+export default Series;

@@ -63,11 +63,11 @@ const SeriesSlider: React.FC<IBannerProps> = ({ category, data, title }) => {
   // - Box 클릭시 url 이동
   const navigate = useNavigate();
   const onBoxClicked = (tv_id: number) => {
-    navigate(`/tv/${tv_id}`);
+    navigate(`/series/${tv_id}`);
   };
 
   // "/tv/:tv_Id" URL 로 이동하였는지 확인
-  const tvMatch: PathMatch<string> | null = useMatch("/tv/:tv_id");
+  const tvMatch: PathMatch<string> | null = useMatch("/series/:tv_id");
 
   // - nextIndex : index state 증가 함수
   const nextIndex = () => {

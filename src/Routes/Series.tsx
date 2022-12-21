@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import * as style from "../Components/styles/style";
 import { makeImagePath } from "../Utils/util";
-import SeriesSlider from "../Components/Series/SeriesSlider";
+import SeriesSlider from "../Components/series/SeriesSlider";
 import { getSeries, IGetResult } from "../Api/api";
 import { useNavigate } from "react-router-dom";
 
@@ -63,7 +63,7 @@ function Series() {
                   </svg>
                   Play
                 </style.PlayBtn>
-                <style.InfoBtn onClick={() => navigate(`/tv/${nowId}`)}>
+                <style.InfoBtn onClick={() => navigate(`/series/${nowId}`)}>
                   ⓘ Information
                 </style.InfoBtn>
               </style.Btn_Container>

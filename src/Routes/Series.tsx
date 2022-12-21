@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import * as style from "../Components/styles/style";
-import { makeImagePath } from "../utils/utils";
+import { makeImagePath } from "../Utils/util";
 import SeriesSlider from "../Components/Series/SeriesSlider";
-import { getSeries, IGetResult } from "../apis/Movi_Ser_Api";
+import { getSeries, IGetResult } from "../Api/api";
 import { useNavigate } from "react-router-dom";
 
 function Series() {

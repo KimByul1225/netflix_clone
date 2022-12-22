@@ -1,8 +1,11 @@
 import { PathMatch, useMatch, useNavigate } from "react-router-dom";
 import { IGetSearch } from "../../apis/SearchApi";
 import { makeImagePath } from "../../utils/utils";
-import * as S from "../../styled-components/StyledSearch";
-import * as M from "../../styled-components/StyledModal";
+
+import * as style from "../styles/style";
+
+
+
 import { useState } from "react";
 
 interface Iprops {

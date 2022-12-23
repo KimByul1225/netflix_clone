@@ -1,6 +1,6 @@
 import { PathMatch, useMatch, useNavigate } from "react-router-dom";
-import { IGetSearch } from "../../apis/SearchApi";
-import { makeImagePath } from "../../utils/utils";
+import { IGetSearch } from "../../Api/api";
+import { makeImagePath } from "../../Utils/util";
 
 import * as style from "../styles/style";
 
@@ -34,12 +34,12 @@ function SearchMovie({ keyword, movieData }: Iprops) {
 
   return (
     <>
-      <S.Searching_Title>
+      <style.Searching_Title>
         <span>📽️</span>Movie
-      </S.Searching_Title>
-      <S.SearchRow_movie>
+      </style.Searching_Title>
+      <style.SearchRow_movie>
         {movieData?.results.map(data => (
-          <S.RowBox
+          <style.RowBox
             onClick={() => {
               onIdtarget(data.id);
               MovieClick(data.id);
@@ -54,29 +54,29 @@ function SearchMovie({ keyword, movieData }: Iprops) {
             )}
             key={`movie-${data.id}`}
           >
-            <S.RowBox_Info variants={S.infoVariants}>
+            <style.RowBox_Info variants={style.infoVariants}>
               <h4>{data.title ? data.title : data.name}</h4>
-            </S.RowBox_Info>
-          </S.RowBox>
+            </style.RowBox_Info>
+          </style.RowBox>
         ))}
-      </S.SearchRow_movie>
+      </style.SearchRow_movie>
 
       {MovieMatch ? (
         <>
-          <M.Overlay
+          <style.Overlay
             variants={M.overlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
             onClick={() => navigate(-1)}
           />
-          <M.Modal
+          <style.Modal
             variants={M.modalVariants}
             initial="initial"
             animate="click"
             exit="exit"
           >
-            <M.Modal_Poster
+            <style.Modal_Poster
               bgphoto={
                 Mdata?.backdrop_path
                   ? makeImagePath(Mdata.backdrop_path + "", "w500")
@@ -85,13 +85,13 @@ function SearchMovie({ keyword, movieData }: Iprops) {
                   : null
               }
             />
-            <M.Poster_prevBtn onClick={() => navigate(-1)}>✕</M.Poster_prevBtn>
-            <M.Poster_Title>
+            <style.Poster_prevBtn onClick={() => navigate(-1)}>✕</style.Poster_prevBtn>
+            <style.Poster_Title>
               {Mdata?.name ? Mdata.name : Mdata?.title}
-            </M.Poster_Title>
-            <S.Search_OriginTitle>
+            </style.Poster_Title>
+            <style.Search_OriginTitle>
               {Mdata?.original_title ? Mdata?.original_title : Mdata?.name}
-            </S.Search_OriginTitle>
+            </style.Search_OriginTitle>
             <S.Search_MiniPoster
               bgphoto={makeImagePath(
                 Mdata?.poster_path || Mdata!.backdrop_path,
@@ -112,7 +112,7 @@ function SearchMovie({ keyword, movieData }: Iprops) {
                   : Mdata?.overview}
               </S.Search_overview>
             </S.Search_infomation>
-          </M.Modal>
+          </style.Modal>
         </>
       ) : null}
     </>

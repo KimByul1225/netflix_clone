@@ -1,11 +1,7 @@
 import { PathMatch, useMatch, useNavigate } from "react-router-dom";
 import { IGetSearch } from "../../Api/api";
 import { makeImagePath } from "../../Utils/util";
-
 import * as style from "../styles/style";
-
-
-
 import { useState } from "react";
 
 interface Iprops {
@@ -44,7 +40,7 @@ function SearchMovie({ keyword, movieData }: Iprops) {
               onIdtarget(data.id);
               MovieClick(data.id);
             }}
-            variants={S.BoxHoverVariants}
+            variants={style.BoxHoverVariants}
             initial="initial"
             whileHover="hover"
             transition={{ type: "tween" }}
@@ -64,14 +60,14 @@ function SearchMovie({ keyword, movieData }: Iprops) {
       {MovieMatch ? (
         <>
           <style.Overlay
-            variants={M.overlayVariants}
+            variants={style.overlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
             onClick={() => navigate(-1)}
           />
           <style.Modal
-            variants={M.modalVariants}
+            variants={style.modalVariants}
             initial="initial"
             animate="click"
             exit="exit"
@@ -92,13 +88,13 @@ function SearchMovie({ keyword, movieData }: Iprops) {
             <style.Search_OriginTitle>
               {Mdata?.original_title ? Mdata?.original_title : Mdata?.name}
             </style.Search_OriginTitle>
-            <S.Search_MiniPoster
+            <style.Search_MiniPoster
               bgphoto={makeImagePath(
                 Mdata?.poster_path || Mdata!.backdrop_path,
                 "w500"
               )}
             />
-            <S.Search_infomation>
+            <style.Search_infomation>
               <span>{sub_Openday ? sub_Openday : "No Data"}</span>
               <span>
                 ⭐
@@ -106,12 +102,12 @@ function SearchMovie({ keyword, movieData }: Iprops) {
                   ? (Mdata?.vote_average).toFixed(1)
                   : "not vote"}
               </span>
-              <S.Search_overview>
+              <style.Search_overview>
                 {Mdata?.overview === ""
                   ? "There is no overview."
                   : Mdata?.overview}
-              </S.Search_overview>
-            </S.Search_infomation>
+              </style.Search_overview>
+            </style.Search_infomation>
           </style.Modal>
         </>
       ) : null}

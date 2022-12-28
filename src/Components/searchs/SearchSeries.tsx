@@ -1,7 +1,7 @@
 import { PathMatch, useMatch, useNavigate } from "react-router-dom";
 import * as style from "../styles/style";
-import { makeImagePath } from "../../utils/utils";
-import { IGetSearch } from "../../apis/SearchApi";
+import { makeImagePath } from "../../Utils/util";
+import { IGetSearch } from "../../Api/api";
 
 import { useState } from "react";
 
@@ -58,14 +58,14 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
       {seiresMatch ? (
         <>
           <style.Overlay
-            variants={M.overlayVariants}
+            variants={style.overlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
             onClick={() => navigate(-1)}
           />
           <style.Modal
-            variants={M.modalVariants}
+            variants={style.modalVariants}
             initial="initial"
             animate="click"
             exit="exit"

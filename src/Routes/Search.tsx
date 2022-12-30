@@ -2,10 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
-import { getSearchMovie, getSearchTv, IGetSearch } from "../apis/SearchApi";
+import { getSearchMovie, getSearchTv, IGetSearch } from "../Api/api";
 import SearchMovie from "../Components/Searchs/SearchMovie";
 import SearchSeries from "../Components/Searchs/SearchSeries";
-import * as S from "../styled-components/StyledSearch";
+
+import * as style from "../Components/styles/style";
 
 function Search() {
   const location = useLocation();

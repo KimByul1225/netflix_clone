@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
 import { getSearchMovie, getSearchTv, IGetSearch } from "../Api/api";
-import SearchMovie from "../Components/Searchs/SearchMovie";
-import SearchSeries from "../Components/Searchs/SearchSeries";
+import SearchMovie from "../Components/searchs/SearchMovie";
+import SearchSeries from "../Components/searchs/SearchSeries";
 
 import * as style from "../Components/styles/style";
 
@@ -34,29 +34,29 @@ function Search() {
 
   return (
     <>
-      <S.Wrapper>
+      <style.Wrapper>
         <Helmet>
           <title>Neonflix - Search</title>
         </Helmet>
         {keyword === null ? (
-          <S.Notingdiv>
+          <style.Notingdiv>
             <div>No search results found.</div>
             <div>
               Click the magnifying glass icon in the upper right to search!
             </div>
-          </S.Notingdiv>
+          </style.Notingdiv>
         ) : (
           // 검색 후
-          <S.Searching>
-            <S.Title>
+          <style.Searching>
+            <style.Title>
               Result of searching with <span>{keyword}</span>
-            </S.Title>
+            </style.Title>
             {/* 검색 결과 */}
             <SearchMovie keyword={keyword} movieData={movie_Data!} />
             <SearchSeries keyword={keyword} tvData={tv_Data!} />
-          </S.Searching>
+          </style.Searching>
         )}
-      </S.Wrapper>
+      </style.Wrapper>
     </>
   );
 }

@@ -193,18 +193,18 @@ export const RowBox = styled(motion.div)<{ bgphoto: string }>`
   }
 `;
 
-export const RowBox_Info = styled(motion.div)`
-  opacity: 0;
-  padding: 10px;
-  background-color: rgba(28, 28, 28, 0.6);
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  h4 {
-    text-align: center;
-    font-size: 13px;
-  }
-`;
+// export const RowBox_Info = styled(motion.div)`
+//   opacity: 0;
+//   padding: 10px;
+//   background-color: rgba(28, 28, 28, 0.6);
+//   position: absolute;
+//   width: 100%;
+//   bottom: 0;
+//   h4 {
+//     text-align: center;
+//     font-size: 13px;
+//   }
+// `;
 
 // ---------- 슬라이드 영역 : next,prev 버튼
 export const prevBtn = styled.div`
@@ -252,7 +252,7 @@ export const nextBtn = styled.div`
 
 
 
-
+// /////////
 
 
 
@@ -464,6 +464,10 @@ export const Poster_director = styled.div`
 
 
 
+
+// ///////
+
+
 export const BoxHoverVariants = {
   initial: { scale: 1 },
   hover: {
@@ -477,21 +481,21 @@ export const BoxHoverVariants = {
   },
 };
 
-export const infoVariants = {
-  hover: {
-    opacity: 1,
-    transition: {
-      delay: 0.3,
-      duration: 0.3,
-      type: "tween",
-    },
-  },
-};
+// export const infoVariants = {
+//   hover: {
+//     opacity: 1,
+//     transition: {
+//       delay: 0.3,
+//       duration: 0.3,
+//       type: "tween",
+//     },
+//   },
+// };
 
-export const Wrapper = styled.div`
-  margin-top: 80px;
-  height: 40vh;
-`;
+// export const Wrapper = styled.div`
+//   margin-top: 80px;
+//   height: 40vh;
+// `;
 
 export const Notingdiv = styled.div`
   padding-top: 250px;
@@ -501,14 +505,14 @@ export const Notingdiv = styled.div`
   width: 100%;
 `;
 
-export const Title = styled.div`
-  font-size: 20px;
-  color: #808080;
-  margin-bottom: 50px;
-  span {
-    color: ${props => props.theme.white.lighter};
-  }
-`;
+// export const Title = styled.div`
+//   font-size: 20px;
+//   color: #808080;
+//   margin-bottom: 50px;
+//   span {
+//     color: ${props => props.theme.white.lighter};
+//   }
+// `;
 
 export const Searching = styled.div`
   padding: 60px;
@@ -541,26 +545,26 @@ export const SearchRow_series = styled(motion.div)`
   margin-bottom: 40px;
 `;
 
-export const RowBox = styled(motion.div) <{ bgphoto: string }>`
-  height: 170px;
-  border-radius: 3px;
-  background-image: url(${props => props.bgphoto});
-  background-color: ${props =>
-    props.theme.black.lighter}; // bgphoto 가 없을 경우 띄워지는
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  overflow: hidden;
-  // 글자
-  font-size: 10px;
-  text-align: center;
-  color: white;
-  @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    height: 135px;
-  }
-`;
+// export const RowBox = styled(motion.div) <{ bgphoto: string }>`
+//   height: 170px;
+//   border-radius: 3px;
+//   background-image: url(${props => props.bgphoto});
+//   background-color: ${props =>
+//     props.theme.black.lighter}; // bgphoto 가 없을 경우 띄워지는
+//   background-size: cover;
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   cursor: pointer;
+//   overflow: hidden;
+//   // 글자
+//   font-size: 10px;
+//   text-align: center;
+//   color: white;
+//   @media screen and (max-width: 1536px) {
+//     /* 15.6인치 노트북 기준 */
+//     height: 135px;
+//   }
+// `;
 
 export const RowBox_Info = styled(motion.div)`
   opacity: 0;
@@ -575,15 +579,15 @@ export const RowBox_Info = styled(motion.div)`
   }
 `;
 
-export const Modal_Poster = styled.div`
-  width: 100%;
-  height: 500px;
-  background-color: ${props =>
-    props.theme.black.lighter}; // bgphoto 가 없을 경우 띄워지는
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-`;
+// export const Modal_Poster = styled.div`
+//   width: 100%;
+//   height: 500px;
+//   background-color: ${props =>
+//     props.theme.black.lighter}; // bgphoto 가 없을 경우 띄워지는
+//   background-size: cover;
+//   background-position: top center;
+//   background-repeat: no-repeat;
+// `;
 
 export const Search_infomation = styled.div`
   // 1. 개봉년일 2.평점

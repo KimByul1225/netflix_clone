@@ -14,10 +14,13 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
   const navigate = useNavigate();
   const [s_Id, sets_Id] = useState<number>();
 
-  const seiresClick = (tv_id: number) =>
-    navigate(`/search/tv/${tv_id}?keyword=${keyword}`);
+    
+  const seiresClick = (tv_id: number) => {
+    navigate(`/search/series/${tv_id}?keyword=${keyword}`);
+  };
+    
   const seiresMatch: PathMatch<string> | null = useMatch(
-    "/search/tv/:tv_id:keyword"
+    "/search/series/:tv_id"
   );
 
   const onIdtarget = (id: number) => {

@@ -283,16 +283,15 @@ export const Overlay = styled(motion.div)`
 export const Modal = styled(motion.div)`
   position: fixed;
   width: 55vw;
-  height: 90vh;
-  top: 30px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${props => props.theme.black.darker};
-  border-radius: 5px;
-  overflow: hidden;
-  border-radius: 5px;
-  z-index: 999 !important; // 최상위, z-index : 998 - header 영역
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 30px;
+  z-index: 999 !important;
 `;
 
 export const Modal_Poster = styled.div<{ bgphoto: string }>`
@@ -307,10 +306,11 @@ export const Modal_Poster = styled.div<{ bgphoto: string }>`
   background-size: cover;
   background-position: center center;
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     height: 350px;
   }
 `;
+
+
 
 export const Poster_prevBtn = styled.div`
   color: ${props => props.theme.white.darker};
@@ -327,16 +327,19 @@ export const Poster_prevBtn = styled.div`
   background-color: ${props => props.theme.black.darker};
 `;
 
+export const Detail_Wrap = styled.div`
+  padding: 0 50px 100px 50px;
+  margin-top: -80px;
+`
+
+
 export const Poster_Title = styled.div`
-  letter-spacing: 1px;
   width: 100%;
   height: 70px;
   color: ${props => props.theme.white.lighter};
-  padding: 0 50px;
   font-size: 45px;
   font-weight: 700;
   position: relative;
-  top: -90px;
   text-shadow: 1px 1px 2px #a8a8a8;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -344,9 +347,7 @@ export const Poster_Title = styled.div`
   -webkit-line-clamp: 1; /* 라인수 */
   -webkit-box-orient: vertical;
   word-wrap: break-word;
-
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     font-size: 32px;
     top: -75px;
     height: 40px;
@@ -357,11 +358,10 @@ export const Poster_Title = styled.div`
 export const Poster_MiniTitle = styled.div`
   font-size: 18px;
   font-weight: 500;
-  padding-left: 55px;
   position: relative;
-  top: -90px;
-  letter-spacing: 0.8px;
+  letter-spacing: -0.005em;
   color: #bababa;
+  margin-bottom: 80px;
   @media screen and (max-width: 1536px) {
     /* 15.6인치 노트북 기준 */
     font-size: 14px;
@@ -370,23 +370,25 @@ export const Poster_MiniTitle = styled.div`
 
 export const Poster_infomation_top = styled.div`
   // 1.개봉년도  2.장르  3.평균 평점 리스트
-  top: -55px;
-  font-size: 22px;
-  padding-left: 50px;
+  font-size: 30px;
   position: relative;
   font-weight: 500;
   span:first-child {
-    color: #46d369;
-    border: 1px solid ${props => props.theme.white.darker};
-    padding: 0.5px 4px;
-    border-radius: 3px;
-    margin-right: 10px;
+    font-weight: 600;
+    color: #fc0606;
+    margin-right: 20px;
   }
   p {
     display: inline;
   }
+  i {
+    margin-left: 20px;
+    font-size: 24px;
+  }
   span:last-child {
     margin-left: 10px;
+    color: #ffd501;
+    font-size: 24px;
   }
   @media screen and (max-width: 1536px) {
     /* 15.6인치 노트북 기준 */
@@ -395,13 +397,9 @@ export const Poster_infomation_top = styled.div`
 `;
 
 export const Poster_infomation_bottom = styled.div`
-  padding-left: 50px;
-  padding-bottom: 30px;
-  padding-right: 50px;
   display: flex;
   flex-direction: row;
   position: relative;
-  top: -20px;
 `;
 
 export const Poster_overview = styled.div`

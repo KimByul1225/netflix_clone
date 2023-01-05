@@ -7,7 +7,16 @@ import { PathMatch, useMatch } from "react-router-dom";
 import { IGetResult } from "../../Api/api";
 import MovieDetail from "./MovieDetail";
 
-// ----------Variants----
+/**
+ * @description 메인(영화)페이지 각 슬라이더 컴포넌트
+ */
+
+interface IBannerProps {
+  data: IGetResult | undefined;
+  title: string;
+  category: string;
+}
+
 const RowVariants = {
   hidden: (isNext: boolean) => {
     return {
@@ -23,7 +32,6 @@ const RowVariants = {
     };
   },
 };
-
 const BoxHoverVariants = {
   initial: { scale: 1 },
   hover: {
@@ -37,45 +45,27 @@ const BoxHoverVariants = {
   },
 };
 
-interface IBannerProps {
-  data: IGetResult | undefined;
-  title: string;
-  category: string;
-}
 
 const MovieSlider: React.FC<IBannerProps> = React.memo(
   ({ category, data, title }) => {
-    // - 슬라이더 내에 한번에 보여주고싶은 영화의 개수
     const offset = 6;
-
-    // - 슬라이드 다음, 이전으로 넘기기위한 인덱스
     const [index, setIndex] = useState(0);
-
-    // 슬라이드 애니메이션 방향 설정
     const [isNext, setIsNext] = useState(true);
-
-    // - leaving : 슬라이드 내에 이동중인 애니메이션이 끝났는지 확인
     const [leaving, setLeaving] = useState(false);
     const toggleLeaving = () => setLeaving(prev => !prev);
-
     const navigate = useNavigate();
     const onBoxClicked = (movieId: number) => {
       navigate(`/movies/${movieId}`);
     };
     const bigMovieMatch: PathMatch<string> | null =
       useMatch("/movies/:movieId");
-
-    // - nextIndex : index state 증가 함수
     const nextIndex = () => {
       if (data) {
-        // 애니메이션이 아직 끝나지 않았다면
         if (leaving) {
           return;
         } else {
-          // 타이틀에 걸린 영화 1개 제외한 값
           const totalMovies = data.results.length;
           const maxIndex = Math.floor(totalMovies / offset) - 1;
-
           toggleLeaving();
           setIndex(prev => (prev === maxIndex ? 0 : prev + 1));
           setIsNext(() => true);
@@ -83,7 +73,6 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
       }
     };
 
-    // - prevIndex : index state 감소 함수
     const prevIndex = () => {
       if (data) {
         if (leaving) {
@@ -91,7 +80,6 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
         } else {
           const totalMovies = data.results.length;
           const maxIndex = Math.floor(totalMovies / offset) - 1;
-
           toggleLeaving();
           setIndex(prev => (prev === 0 ? maxIndex - 1 : prev - 1));
           setIsNext(() => false);
@@ -99,14 +87,12 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
       }
     };
 
-    //index 값에 따라 6 단위의 배열로 잘라냄
     const resultsData = data?.results
       .slice(1)
       .slice(offset * index, offset * index + offset);
 
     return (
       <>
-        {/* -- 슬라이드 영역 -- */}
         <style.Slider>
           <style.Slider_Title>{title}</style.Slider_Title>
           <AnimatePresence

@@ -12,20 +12,15 @@ interface Iprops {
 function SearchMovie({ keyword, movieData }: Iprops) {
   const navigate = useNavigate();
   const [m_Id, setm_Id] = useState<number>();
-
   const MovieClick = (movieId: number) =>
     navigate(`/search/movie/${movieId}?keyword=${keyword}`);
-
   const MovieMatch: PathMatch<string> | null = useMatch(
     "/search/movie/:movieId"
   );
-
   const onIdtarget = (id: number) => {
     setm_Id(id);
   };
   const Mdata = movieData?.results.find(item => item.id === m_Id);
-
-  // 영화 개봉날짜
   const sub_Openday = Mdata?.release_date?.substring(0, 4);
 
   return (

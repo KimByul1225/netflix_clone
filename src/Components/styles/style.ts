@@ -45,19 +45,24 @@ export const Banner = styled.div<{ bgphoto: string }>`
   background-size: cover;
 `;
 
-export const Title_and_Overview = styled.div`
-  // 타이틀, 설명 container
-  width: 55vw;
-  height: 50vh;
-  margin-top: 20vh;
-  margin-left: 60px;
-  @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    height: 60vh;
+export const Title = styled.h2`
+  font-size: 20px;
+  color: #808080;
+    margin-bottom: 50px;
+  span {
+    color: ${props => props.theme.white.lighter};
   }
+`
+
+export const TitleOverviewWrap = styled.div` 
+  width: 55vw;
+  position:  absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
 `;
 
-export const Title = styled.h2`
+export const BannerTitle = styled.h2`
   // 영화제목
   font-size: 80px;
   font-weight: 700;
@@ -70,21 +75,18 @@ export const Title = styled.h2`
 `;
 
 export const Overview = styled.p`
-  // 영화 설명
   font-size: 25px;
   font-weight: 400;
   width: 70%;
   text-shadow: 1px 2px 4px rgb(0, 0, 0, 0.7);
   margin-bottom: 20px;
-
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* 라인수 */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     font-size: 20px;
   }
 `;

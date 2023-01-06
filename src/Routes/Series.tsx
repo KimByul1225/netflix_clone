@@ -44,8 +44,8 @@ function Series() {
           </Helmet>
           {/* -- 배너 영역 --  */}
           <style.Banner bgphoto={makeImagePath(imagePath || "")}>
-            <style.Title_and_Overview>
-              <style.Title>{pop_data?.results[0].name}</style.Title>
+            <style.TitleOverviewWrap>
+              <style.BannerTitle>{pop_data?.results[0].name}</style.BannerTitle>
               <style.Overview>{pop_data?.results[0].overview}</style.Overview>
               <style.Btn_Container>
                 <style.PlayBtn>
@@ -67,7 +67,7 @@ function Series() {
                   ⓘ Information
                 </style.InfoBtn>
               </style.Btn_Container>
-            </style.Title_and_Overview>
+            </style.TitleOverviewWrap>
           </style.Banner>
           <SeriesSlider
             category="on_the_air"

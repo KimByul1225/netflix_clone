@@ -73,7 +73,7 @@ function MovieDetail({ category, id }: IDetailProps) {
             ) : (
               "Neonfilx"
             )}
-            <style.Modal_Poster
+            <style.ModalBackDrop
               bgphoto={
                 detailData?.backdrop_path
                   ? makeImagePath(detailData.backdrop_path + "", "w500")
@@ -90,12 +90,12 @@ function MovieDetail({ category, id }: IDetailProps) {
                 )})`,
               }}
             /> */}
-            <style.Poster_prevBtn onClick={() => navigate(-1)}>✕</style.Poster_prevBtn>
+            <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
 
-            <style.Detail_Wrap>
-              <style.Poster_Title>{detailData?.title}</style.Poster_Title>
-              <style.Poster_MiniTitle>{detailData?.title}</style.Poster_MiniTitle>
-              <style.Poster_infomation_top>
+            <style.DetailWrap>
+              <style.PosterTitle>{detailData?.title}</style.PosterTitle>
+              <style.PosterMiniTitle>{detailData?.title}</style.PosterMiniTitle>
+              <style.PosterInfomation>
                 <span>{sub_Openday}</span>
                 {detailData?.genres.slice(0, 3).map((genre, index) => (
                   <p id="genrs" key={genre.id}>
@@ -113,25 +113,25 @@ function MovieDetail({ category, id }: IDetailProps) {
                     "not vote"
                   }
                 </span>
-              </style.Poster_infomation_top>
-              <style.Poster_infomation_bottom>
-                <style.Poster_overview>{detailData?.overview}</style.Poster_overview>
-                <style.Poster_acter_and_director>
-                  <style.Poster_actor>
+              </style.PosterInfomation>
+              <style.PosterBox>
+                <style.PosterOverview>{detailData?.overview}</style.PosterOverview>
+                <style.PosterStaff>
+                  <style.PosterActor>
                     <span>Casting:</span>
                     {actor?.map((cast, index) => (
                       <div key={cast.id}>
                         {cast.name ? cast.name : "No data"},
                       </div>
                     ))}
-                  </style.Poster_actor>
-                  <style.Poster_director>
+                  </style.PosterActor>
+                  <style.PosterDirector>
                     <span>Director:</span>
                     {director?.name ? director?.name : "No data"}
-                  </style.Poster_director>
-                </style.Poster_acter_and_director>
-              </style.Poster_infomation_bottom>
-            </style.Detail_Wrap>
+                  </style.PosterDirector>
+                </style.PosterStaff>
+              </style.PosterBox>
+            </style.DetailWrap>
           </style.Modal>
         </>
       )}

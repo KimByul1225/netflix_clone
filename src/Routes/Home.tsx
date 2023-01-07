@@ -51,7 +51,7 @@ function Home() {
                 <style.TitleOverviewWrap>
                     <style.BannerTitle>{now_data?.results[0].title}</style.BannerTitle>
                     <style.Overview>{now_data?.results[0].overview}</style.Overview>
-                    <style.Btn_Container>
+                    <style.BtnContainer>
                         <style.PlayBtn>
                         <svg
                             width="24"
@@ -70,7 +70,7 @@ function Home() {
                         <style.InfoBtn onClick={() => navigate(`/movies/${nowId}`)}>
                         ⓘ Information
                         </style.InfoBtn>
-                    </style.Btn_Container>
+                    </style.BtnContainer>
                 </style.TitleOverviewWrap>
             </style.Banner>
             {/* -- 슬라이드 영역 -- */}

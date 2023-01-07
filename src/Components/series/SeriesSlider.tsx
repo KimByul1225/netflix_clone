@@ -113,7 +113,7 @@ const SeriesSlider: React.FC<IBannerProps> = ({ category, data, title }) => {
     <>
       {/* -- 슬라이드 영역 -- */}
       <style.Slider>
-        <style.Slider_Title>{title}</style.Slider_Title>
+        <style.SliderTitle>{title}</style.SliderTitle>
         <AnimatePresence
           custom={isNext}
           initial={false}
@@ -142,23 +142,23 @@ const SeriesSlider: React.FC<IBannerProps> = ({ category, data, title }) => {
                     "w500"
                   )}
                 >
-                  <style.RowBox_Info variants={style.infoVariants}>
+                  <style.RowBoxInfo variants={style.infoVariants}>
                     <h4>{data.name}</h4>
-                  </style.RowBox_Info>
+                  </style.RowBoxInfo>
                 </style.RowBox>
               ))}
           </style.Row>
         </AnimatePresence>
-        <style.prevBtn onClick={prevIndex}>
+        <style.PrevBtn onClick={prevIndex}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
             <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
           </svg>
-        </style.prevBtn>
-        <style.nextBtn onClick={nextIndex}>
+        </style.PrevBtn>
+        <style.NextBtn onClick={nextIndex}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
             <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
           </svg>
-        </style.nextBtn>
+        </style.NextBtn>
       </style.Slider>
 
       {/* -- 오버레이 영역 -- */}

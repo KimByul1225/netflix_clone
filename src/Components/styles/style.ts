@@ -11,7 +11,20 @@ export const infoVariants = {
     },
   },
 };
-// -----------------------
+
+export const overlayVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 0.4 },
+  exit: { opacity: 0 },
+};
+
+export const modalVariants = {
+  initial: { opacity: 0 },
+  click: { opacity: 1, transition: { duration: 0.3 } },
+  exit: { opacity: 0 },
+};
+
+
 
 export const Wrapper = styled.div`
   overflow: hidden;
@@ -25,10 +38,7 @@ export const Loader = styled.div`
   font-size: 16px;
 `;
 
-// ---배너 영역---
-
 export const Banner = styled.div<{ bgphoto: string }>`
-  // 배너 이미지
   height: 100vh;
   background-color: black;
   display: flex;
@@ -53,7 +63,6 @@ export const Title = styled.h2`
     color: ${props => props.theme.white.lighter};
   }
 `
-
 export const TitleOverviewWrap = styled.div` 
   width: 55vw;
   position:  absolute;
@@ -63,13 +72,11 @@ export const TitleOverviewWrap = styled.div`
 `;
 
 export const BannerTitle = styled.h2`
-  // 영화제목
   font-size: 80px;
   font-weight: 700;
   margin-bottom: 20px;
   text-shadow: 1px 2px 3px rgb(0, 0, 0, 0.6);
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     font-size: 75px;
   }
 `;
@@ -91,11 +98,9 @@ export const Overview = styled.p`
   }
 `;
 
-export const Btn_Container = styled.div`
+export const BtnContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60%;
-  min-width: 40%;
 `;
 
 export const PlayBtn = styled.div`
@@ -117,9 +122,7 @@ export const PlayBtn = styled.div`
   :hover {
     background-color: rgba(238, 238, 238, 0.6);
   }
-
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     width: 120px;
     height: 40px;
     font-size: 20px;
@@ -141,14 +144,12 @@ export const InfoBtn = styled.div`
     background-color: rgba(75, 75, 75, 0.5);
   }
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     width: 180px;
     height: 40px;
     font-size: 20px;
   }
 `;
 
-// ---------- 슬라이드 영역
 export const Slider = styled.div`
   padding: 0 60px;
   height: 220px;
@@ -157,7 +158,7 @@ export const Slider = styled.div`
   margin-bottom: 30px;
 `;
 
-export const Slider_Title = styled.h2`
+export const SliderTitle = styled.h2`
   color: ${props => props.theme.white.lighter};
   font-size: 26px;
   margin-bottom: 15px;
@@ -182,7 +183,6 @@ export const RowBox = styled(motion.div)<{ bgphoto: string }>`
   background-repeat: no-repeat;
   cursor: pointer;
   overflow: hidden;
-  // 첫번째랑 마지막 포스터 scale 1.3 될때 잘리지않게
   &:first-child {
     transform-origin: center left !important;
   }
@@ -190,26 +190,24 @@ export const RowBox = styled(motion.div)<{ bgphoto: string }>`
     transform-origin: center right !important;
   }
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     height: 135px;
   }
 `;
 
-// export const RowBox_Info = styled(motion.div)`
-//   opacity: 0;
-//   padding: 10px;
-//   background-color: rgba(28, 28, 28, 0.6);
-//   position: absolute;
-//   width: 100%;
-//   bottom: 0;
-//   h4 {
-//     text-align: center;
-//     font-size: 13px;
-//   }
-// `;
+export const RowBoxInfo = styled(motion.div)`
+  opacity: 0;
+  padding: 10px;
+  background-color: rgba(28, 28, 28, 0.6);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  h4 {
+    text-align: center;
+    font-size: 13px;
+  }
+`;
 
-// ---------- 슬라이드 영역 : next,prev 버튼
-export const prevBtn = styled.div`
+export const PrevBtn = styled.div`
   width: 30px;
   height: 30px;
   top: 100px;
@@ -223,12 +221,11 @@ export const prevBtn = styled.div`
   z-index: 1;
   cursor: pointer;
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     top: 90px;
   }
 `;
 
-export const nextBtn = styled.div`
+export const NextBtn = styled.div`
   width: 30px;
   height: 30px;
   top: 100px;
@@ -243,35 +240,10 @@ export const nextBtn = styled.div`
   z-index: 1;
   cursor: pointer;
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     top: 90px;
   }
 `;
 
-
-
-
-
-
-
-// /////////
-
-
-
-
-// ----------Variants----
-export const overlayVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 0.4 },
-  exit: { opacity: 0 },
-};
-
-export const modalVariants = {
-  initial: { opacity: 0 },
-  click: { opacity: 1, transition: { duration: 0.3 } },
-  exit: { opacity: 0 },
-};
-// -----------------------
 
 export const Overlay = styled(motion.div)`
   position: fixed;
@@ -296,7 +268,7 @@ export const Modal = styled(motion.div)`
   z-index: 999 !important;
 `;
 
-export const Modal_Poster = styled.div<{ bgphoto: string }>`
+export const ModalBackDrop = styled.div<{ bgphoto: string }>`
   width: 100%;
   height: 500px;
   background-image: linear-gradient(
@@ -312,9 +284,7 @@ export const Modal_Poster = styled.div<{ bgphoto: string }>`
   }
 `;
 
-
-
-export const Poster_prevBtn = styled.div`
+export const CloseBtn = styled.div`
   color: ${props => props.theme.white.darker};
   position: absolute;
   top: 20px;
@@ -329,13 +299,11 @@ export const Poster_prevBtn = styled.div`
   background-color: ${props => props.theme.black.darker};
 `;
 
-export const Detail_Wrap = styled.div`
+export const DetailWrap = styled.div`
   padding: 0 50px 100px 50px;
   margin-top: -80px;
 `
-
-
-export const Poster_Title = styled.div`
+export const PosterTitle = styled.div`
   width: 100%;
   height: 70px;
   color: ${props => props.theme.white.lighter};
@@ -346,7 +314,7 @@ export const Poster_Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* 라인수 */
+  -webkit-line-clamp: 1; 
   -webkit-box-orient: vertical;
   word-wrap: break-word;
   @media screen and (max-width: 1536px) {
@@ -357,24 +325,23 @@ export const Poster_Title = styled.div`
   }
 `;
 
-export const Poster_MiniTitle = styled.div`
+export const PosterMiniTitle = styled.div`
   font-size: 18px;
   font-weight: 500;
   position: relative;
   letter-spacing: -0.005em;
   color: #bababa;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     font-size: 14px;
   }
 `;
 
-export const Poster_infomation_top = styled.div`
-  // 1.개봉년도  2.장르  3.평균 평점 리스트
+export const PosterInfomation = styled.div`
   font-size: 30px;
   position: relative;
   font-weight: 500;
+  margin-bottom: 30px;
   span:first-child {
     font-weight: 600;
     color: #fc0606;
@@ -393,18 +360,17 @@ export const Poster_infomation_top = styled.div`
     font-size: 24px;
   }
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     font-size: 18px;
   }
 `;
 
-export const Poster_infomation_bottom = styled.div`
+export const PosterBox = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
 `;
 
-export const Poster_overview = styled.div`
+export const PosterOverview = styled.div`
   width: 60%;
   font-size: 18px;
   line-height: 1.45;
@@ -414,18 +380,17 @@ export const Poster_overview = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 12; /* 라인수 */
+  -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    -webkit-line-clamp: 1; /* 라인수 */
+    -webkit-line-clamp: 1; 
     font-size: 15px;
     line-height: 1.2;
   }
 `;
 
-export const Poster_acter_and_director = styled.div`
+export const PosterStaff = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -437,7 +402,7 @@ export const Poster_acter_and_director = styled.div`
   }
 `;
 
-export const Poster_actor = styled.div`
+export const PosterActor = styled.div`
   margin-bottom: 20px;
   div {
     display: inline;
@@ -452,7 +417,7 @@ export const Poster_actor = styled.div`
   }
 `;
 
-export const Poster_director = styled.div`
+export const PosterDirector = styled.div`
   span {
     color: #777777;
     margin-right: 6px;
@@ -462,10 +427,6 @@ export const Poster_director = styled.div`
 
 
 
-
-
-
-// ///////
 
 
 export const BoxHoverVariants = {
@@ -566,28 +527,9 @@ export const SearchRow_series = styled(motion.div)`
 //   }
 // `;
 
-export const RowBox_Info = styled(motion.div)`
-  opacity: 0;
-  padding: 10px;
-  background-color: rgba(28, 28, 28, 0.6);
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  h4 {
-    text-align: center;
-    font-size: 13px;
-  }
-`;
 
-// export const Modal_Poster = styled.div`
-//   width: 100%;
-//   height: 500px;
-//   background-color: ${props =>
-//     props.theme.black.lighter}; // bgphoto 가 없을 경우 띄워지는
-//   background-size: cover;
-//   background-position: top center;
-//   background-repeat: no-repeat;
-// `;
+
+
 
 export const Search_infomation = styled.div`
   // 1. 개봉년일 2.평점

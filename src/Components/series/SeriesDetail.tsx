@@ -93,7 +93,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                         ) : (
                         "Neonfilx"
                         )}
-                        <style.Modal_Poster
+                        <style.ModalBackDrop
                         bgphoto={
                             detailData?.backdrop_path
                             ? makeImagePath(detailData.backdrop_path + "", "w500")
@@ -102,56 +102,61 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                             : null
                         }
                         />
-                        <style.Poster_prevBtn onClick={() => navigate(-1)}>✕</style.Poster_prevBtn>
-                        <style.Poster_Title>{detailData?.name}</style.Poster_Title>
-                        <style.Poster_MiniTitle>{detailData?.name}</style.Poster_MiniTitle>
-                        <style.Poster_infomation_top>
-                        <span>{sub_Openday}</span>
-                        {detailData?.genres.slice(0, 3).map((genre, index) => (
-                            <p id="genrs" key={genre.id}>
-                            {genre.name}
-                            {index !== detailData.genres.length - 1 && " · "}
-                            </p>
-                        ))}
-                        <span>
-                            ⭐
-                            {detailData?.vote_average
-                            ? (detailData?.vote_average).toFixed(1)
-                            : "not vote"}
-                        </span>
-                        </style.Poster_infomation_top>
-
-                        <style.Poster_infomation_bottom>
-                        <style.Poster_overview>
-                            {detailData?.overview === ""
-                            ? "There is no overview."
-                            : detailData?.overview}
-                        </style.Poster_overview>
-                        <style.Poster_acter_and_director>
-                            <style.Poster_actor>
-                            <span>Casting:</span>
-                            {actor?.length === 0
-                                ? "No casting information."
-                                : actor?.map(cast => (
-                                    <div key={cast.id}> {cast.name},</div>
+                        <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
+                        <style.DetailWrap>
+                            <style.PosterTitle>{detailData?.name}</style.PosterTitle>
+                            <style.PosterMiniTitle>{detailData?.name}</style.PosterMiniTitle>
+                            <style.PosterInfomation>
+                                <span>{sub_Openday}</span>
+                                {detailData?.genres.slice(0, 3).map((genre, index) => (
+                                    <p id="genrs" key={genre.id}>
+                                    {genre.name}
+                                    {index !== detailData.genres.length - 1 && " · "}
+                                    </p>
                                 ))}
-                            </style.Poster_actor>
-                            <style.Poster_director>
-                            <span>
-                                {production?.known_for_department === "Production"
-                                ? "Production:"
-                                : production?.known_for_department === "Directing"
-                                ? "Director:"
-                                : null}
-                            </span>
-                            {production?.known_for_department === "Production"
-                                ? production.name
-                                : production?.known_for_department === "Directing"
-                                ? production.name
-                                : null}
-                            </style.Poster_director>
-                        </style.Poster_acter_and_director>
-                        </style.Poster_infomation_bottom>
+                                <i>
+                                    ⭐
+                                </i>
+                                <span>
+                                    {detailData?.vote_average
+                                    ? (detailData?.vote_average).toFixed(1)
+                                    : "not vote"}
+                                </span>
+                            </style.PosterInfomation>
+                            <style.PosterBox>
+                                <style.PosterOverview>
+                                    {detailData?.overview === ""
+                                    ? "There is no overview."
+                                    : detailData?.overview}
+                                </style.PosterOverview>
+                                <style.PosterStaff>
+                                    <style.PosterActor>
+                                    <span>Casting:</span>
+                                    {actor?.length === 0
+                                        ? "No casting information."
+                                        : actor?.map(cast => (
+                                            <div key={cast.id}> {cast.name},</div>
+                                        ))}
+                                    </style.PosterActor>
+                                    <style.PosterDirector>
+                                    <span>
+                                        {production?.known_for_department === "Production"
+                                        ? "Production:"
+                                        : production?.known_for_department === "Directing"
+                                        ? "Director:"
+                                        : null}
+                                    </span>
+                                    {production?.known_for_department === "Production"
+                                        ? production.name
+                                        : production?.known_for_department === "Directing"
+                                        ? production.name
+                                        : null}
+                                    </style.PosterDirector>
+                                </style.PosterStaff>
+                            </style.PosterBox>
+
+                        </style.DetailWrap>
+                        
                     </style.Modal>
                 </>
             )}

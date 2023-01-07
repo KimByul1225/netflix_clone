@@ -45,9 +45,9 @@ function SearchMovie({ keyword, movieData }: Iprops) {
             )}
             key={`movie-${data.id}`}
           >
-            <style.RowBox_Info variants={style.infoVariants}>
+            <style.RowBoxInfo variants={style.infoVariants}>
               <h4>{data.title ? data.title : data.name}</h4>
-            </style.RowBox_Info>
+            </style.RowBoxInfo>
           </style.RowBox>
         ))}
       </style.SearchRow_movie>
@@ -67,7 +67,7 @@ function SearchMovie({ keyword, movieData }: Iprops) {
             animate="click"
             exit="exit"
           >
-            <style.Modal_Poster
+            <style.ModalBackDrop
               bgphoto={
                 Mdata?.backdrop_path
                   ? makeImagePath(Mdata.backdrop_path + "", "w500")
@@ -76,10 +76,10 @@ function SearchMovie({ keyword, movieData }: Iprops) {
                   : null
               }
             />
-            <style.Poster_prevBtn onClick={() => navigate(-1)}>✕</style.Poster_prevBtn>
-            <style.Poster_Title>
+            <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
+            <style.PosterTitle>
               {Mdata?.name ? Mdata.name : Mdata?.title}
-            </style.Poster_Title>
+            </style.PosterTitle>
             <style.Search_OriginTitle>
               {Mdata?.original_title ? Mdata?.original_title : Mdata?.name}
             </style.Search_OriginTitle>

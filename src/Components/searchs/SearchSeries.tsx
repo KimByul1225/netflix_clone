@@ -51,9 +51,9 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
             )}
             key={`seireis-${data.id}`}
           >
-            <style.RowBox_Info variants={style.infoVariants}>
+            <style.RowBoxInfo variants={style.infoVariants}>
               <h4>{data.title ? data.title : data.name}</h4>
-            </style.RowBox_Info>
+            </style.RowBoxInfo>
           </style.RowBox>
         ))}
       </style.SearchRow_series>
@@ -73,7 +73,7 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
             animate="click"
             exit="exit"
           >
-            <style.Modal_Poster
+            <style.ModalBackDrop
               bgphoto={
                 Sdata?.backdrop_path
                   ? makeImagePath(Sdata.backdrop_path + "", "w500")
@@ -82,10 +82,10 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
                   : null
               }
             />
-            <style.Poster_prevBtn onClick={() => navigate(-1)}>✕</style.Poster_prevBtn>
-            <style.Poster_Title>
+            <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
+            <style.PosterTitle>
               {Sdata?.name ? Sdata.name : Sdata?.title}
-            </style.Poster_Title>
+            </style.PosterTitle>
             <style.Search_OriginTitle>
               {Sdata?.original_title ? Sdata?.original_title : Sdata?.name}
             </style.Search_OriginTitle>

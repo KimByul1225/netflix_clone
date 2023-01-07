@@ -47,7 +47,7 @@ function Series() {
             <style.TitleOverviewWrap>
               <style.BannerTitle>{pop_data?.results[0].name}</style.BannerTitle>
               <style.Overview>{pop_data?.results[0].overview}</style.Overview>
-              <style.Btn_Container>
+              <style.BtnContainer>
                 <style.PlayBtn>
                   <svg
                     width="24"
@@ -66,7 +66,7 @@ function Series() {
                 <style.InfoBtn onClick={() => navigate(`/series/${nowId}`)}>
                   ⓘ Information
                 </style.InfoBtn>
-              </style.Btn_Container>
+              </style.BtnContainer>
             </style.TitleOverviewWrap>
           </style.Banner>
           <SeriesSlider

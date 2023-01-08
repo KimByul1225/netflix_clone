@@ -42,7 +42,7 @@ function Home() {
         ) : (
             <>
             <Helmet>
-                <title>Neonflix - Movie</title>
+                <title>Movie</title>
             </Helmet>
             {/* -- 배너 영역 --  */}
             <style.Banner

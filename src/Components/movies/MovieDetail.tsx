@@ -24,7 +24,7 @@ function MovieDetail({ category, id }: IDetailProps) {
   } = useQuery<IGetDetail>(["movie", `${category}_detail`, id], () =>
     getMovieDetail(id)
   );
-  console.log("detailData", detailData);
+  
   const {
     data: creditData,
     isLoading: creditLoading,
@@ -32,6 +32,7 @@ function MovieDetail({ category, id }: IDetailProps) {
   } = useQuery<IGetCredit>(["movie", `${category}_credit`, id], () =>
     getMovieCredit(id)
   );
+
   useEffect(() => {
     refetchDetail();
     refetchCredit();

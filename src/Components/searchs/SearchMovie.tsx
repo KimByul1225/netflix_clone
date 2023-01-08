@@ -25,12 +25,13 @@ function SearchMovie({ keyword, movieData }: Iprops) {
 
   return (
     <>
-      <style.Searching_Title>
-        <span>📽️</span>Movie
-      </style.Searching_Title>
-      <style.SearchRow_movie>
+      <style.SearchingTitle>
+        <i>🎬</i>
+        <span>Movie</span>
+      </style.SearchingTitle>
+      <style.SearchRowMovie>
         {movieData?.results.map(data => (
-          <style.RowBox
+          <style.SearchRowBox
             onClick={() => {
               onIdtarget(data.id);
               MovieClick(data.id);
@@ -48,9 +49,9 @@ function SearchMovie({ keyword, movieData }: Iprops) {
             <style.RowBoxInfo variants={style.infoVariants}>
               <h4>{data.title ? data.title : data.name}</h4>
             </style.RowBoxInfo>
-          </style.RowBox>
+          </style.SearchRowBox>
         ))}
-      </style.SearchRow_movie>
+      </style.SearchRowMovie>
 
       {MovieMatch ? (
         <>

@@ -31,12 +31,13 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
 
   return (
     <>
-      <style.Searching_Title>
-        <span>📺</span>Series
-      </style.Searching_Title>
+      <style.SearchingTitle>
+        <i>🎞</i> 
+        <span>Series</span>
+      </style.SearchingTitle>
       <style.SearchRow_series>
         {tvData?.results.map(data => (
-          <style.RowBox
+          <style.SearchRowBox
             onClick={() => {
               onIdtarget(data.id);
               seiresClick(data.id);
@@ -54,7 +55,7 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
             <style.RowBoxInfo variants={style.infoVariants}>
               <h4>{data.title ? data.title : data.name}</h4>
             </style.RowBoxInfo>
-          </style.RowBox>
+          </style.SearchRowBox>
         ))}
       </style.SearchRow_series>
 

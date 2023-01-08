@@ -25,6 +25,19 @@ export const modalVariants = {
 };
 
 
+export const BoxHoverVariants = {
+  initial: { scale: 1 },
+  hover: {
+    scale: 1.2,
+    y: -22,
+    transition: {
+      delay: 0.3,
+      duration: 0.3,
+      type: "tween",
+    },
+  },
+};
+
 
 export const Wrapper = styled.div`
   overflow: hidden;
@@ -63,11 +76,12 @@ export const Title = styled.h2`
     color: ${props => props.theme.white.lighter};
   }
 `
+
 export const TitleOverviewWrap = styled.div` 
   width: 55vw;
   position:  absolute;
   top: 50%;
-  left: 50px;
+  left: 60px;
   transform: translateY(-50%);
 `;
 
@@ -199,7 +213,8 @@ export const RowBoxInfo = styled(motion.div)`
   padding: 10px;
   background-color: rgba(28, 28, 28, 0.6);
   position: absolute;
-  width: 100%;
+  left: 0;
+  right: 0;
   bottom: 0;
   h4 {
     text-align: center;
@@ -397,7 +412,6 @@ export const PosterStaff = styled.div`
   font-size: 18px;
   color: ${props => props.theme.white.lighter};
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     font-size: 16px;
   }
 `;
@@ -412,7 +426,6 @@ export const PosterActor = styled.div`
     margin-right: 6px;
   }
   @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
     margin-bottom: 10px;
   }
 `;
@@ -427,38 +440,12 @@ export const PosterDirector = styled.div`
 
 
 
+export const SearchWrapper = styled.div`
+  margin-top: 80px;
+  min-height: 40vh;
+`;
 
-
-export const BoxHoverVariants = {
-  initial: { scale: 1 },
-  hover: {
-    scale: 1.2,
-    y: -22,
-    transition: {
-      delay: 0.3,
-      duration: 0.3,
-      type: "tween",
-    },
-  },
-};
-
-// export const infoVariants = {
-//   hover: {
-//     opacity: 1,
-//     transition: {
-//       delay: 0.3,
-//       duration: 0.3,
-//       type: "tween",
-//     },
-//   },
-// };
-
-// export const Wrapper = styled.div`
-//   margin-top: 80px;
-//   height: 40vh;
-// `;
-
-export const Notingdiv = styled.div`
+export const NotingWrap = styled.div`
   padding-top: 250px;
   text-align: center;
   font-size: 30px;
@@ -466,31 +453,50 @@ export const Notingdiv = styled.div`
   width: 100%;
 `;
 
-// export const Title = styled.div`
-//   font-size: 20px;
-//   color: #808080;
-//   margin-bottom: 50px;
-//   span {
-//     color: ${props => props.theme.white.lighter};
-//   }
-// `;
-
 export const Searching = styled.div`
   padding: 60px;
 `;
 
-export const Searching_Title = styled.div`
+
+export const SearchingResult = styled.div`
+  font-size: 36px;
+  color: #808080;
+  margin-bottom: 20px;
+  b {
+    color: ${props => props.theme.white.lighter};
+    font-size: 36px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 10px;
+  }
+`;
+
+export const SearchingCount = styled.div`
+  font-size: 20px;
+  color: #808080;
+  padding-left: 30px;
+  margin-bottom: 50px;
+  b {
+    color: ${props => props.theme.white.lighter};
+    font-size: 24px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 10px;
+  }
+`;
+
+export const SearchingTitle = styled.h3`
   font-size: 25px;
   margin-bottom: 20px;
   font-weight: 500;
   color: ${props => props.theme.white.darker};
-  span {
-    font-size: 25px;
-    margin-right: 3px;
+  i{
+    display: inline-block;
+    margin-right: 10px;
   }
 `;
 
-export const SearchRow_movie = styled(motion.div)`
+export const SearchRowMovie = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 5px;
@@ -506,30 +512,24 @@ export const SearchRow_series = styled(motion.div)`
   margin-bottom: 40px;
 `;
 
-// export const RowBox = styled(motion.div) <{ bgphoto: string }>`
-//   height: 170px;
-//   border-radius: 3px;
-//   background-image: url(${props => props.bgphoto});
-//   background-color: ${props =>
-//     props.theme.black.lighter}; // bgphoto 가 없을 경우 띄워지는
-//   background-size: cover;
-//   background-position: center center;
-//   background-repeat: no-repeat;
-//   cursor: pointer;
-//   overflow: hidden;
-//   // 글자
-//   font-size: 10px;
-//   text-align: center;
-//   color: white;
-//   @media screen and (max-width: 1536px) {
-//     /* 15.6인치 노트북 기준 */
-//     height: 135px;
-//   }
-// `;
-
-
-
-
+export const SearchRowBox = styled(motion.div) <{ bgphoto: string }>`
+  height: 170px;
+  border-radius: 3px;
+  background-image: url(${props => props.bgphoto});
+  background-color: ${props =>
+    props.theme.black.lighter}; 
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+  @media screen and (max-width: 1536px) {
+    height: 135px;
+  }
+`;
 
 export const Search_infomation = styled.div`
   // 1. 개봉년일 2.평점

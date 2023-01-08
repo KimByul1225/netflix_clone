@@ -40,7 +40,7 @@ function Series() {
       ) : (
         <>
           <Helmet>
-            <title>Neonflix - Series</title>
+            <title>Series</title>
           </Helmet>
           {/* -- 배너 영역 --  */}
           <style.Banner bgphoto={makeImagePath(imagePath || "")}>

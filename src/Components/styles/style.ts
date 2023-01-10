@@ -531,45 +531,6 @@ export const SearchRowBox = styled(motion.div) <{ bgphoto: string }>`
   }
 `;
 
-export const Search_infomation = styled.div`
-  // 1. 개봉년일 2.평점
-  padding-left: 320px;
-  position: relative;
-  top: -40px;
-  font-weight: 500;
-  font-size: 20px;
-  span:first-child {
-    color: #46d369;
-    border: 1px solid ${props => props.theme.white.darker};
-    padding: 0.5px 4px;
-    border-radius: 3px;
-    margin-right: 10px;
-  }
-  @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    padding-left: 250px;
-    top: -60px;
-    font-size: 18px;
-  }
-`;
-
-export const Search_overview = styled.div`
-  width: 90%;
-  font-size: 20px;
-  margin-top: 20px;
-  line-height: 1.4;
-  color: ${props => props.theme.white.lighter};
-  background-color: ${props => props.theme.black.darker};
-
-  @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    height: 200px;
-    font-size: 15px;
-    line-height: 1.3;
-    font-weight: 400;
-    overflow: auto;
-  }
-`;
 
 export const Search_MiniPoster = styled.div<{ bgphoto: string }>`
   width: 220px;
@@ -586,19 +547,5 @@ export const Search_MiniPoster = styled.div<{ bgphoto: string }>`
     height: 220px;
     top: 370px;
     left: 50px;
-  }
-`;
-
-export const Search_OriginTitle = styled.div`
-  font-size: 18px;
-  font-weight: 500;
-  padding-left: 55px;
-  position: relative;
-  top: -90px;
-  letter-spacing: 0.8px;
-  color: #bababa;
-  @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    font-size: 14px;
   }
 `;

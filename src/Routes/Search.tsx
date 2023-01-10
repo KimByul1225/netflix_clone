@@ -64,8 +64,14 @@ function Search() {
                 총 <b>{totalCount}</b> 건의 검색 결과가 검색 되었습니다.
               </style.SearchingCount>
               {/* 검색 결과 */}
-              <SearchMovie keyword={keyword} movieData={movie_Data!} />
-              <SearchSeries keyword={keyword} tvData={tv_Data!} />
+              <SearchMovie 
+                keyword={keyword} 
+                movieData={movie_Data!}
+              />
+              <SearchSeries 
+                keyword={keyword} 
+                tvData={tv_Data!} 
+              />
             </style.Searching>
         }
       </style.SearchWrapper>

@@ -81,6 +81,13 @@ export interface ISearchResult {
     original_title: string;
     release_date?: string; // 영화
     first_air_date?: string; // 시리즈
+    genres: [
+        {
+            id: number;
+            name: string;
+        }
+    ];
+    
 }
 
 export interface IGetSearch {
@@ -89,6 +96,9 @@ export interface IGetSearch {
     total_pages: number;
     total_results: number;
     dates: string;
+    
+
+
 }
 
 export function getMovies(category: string) {

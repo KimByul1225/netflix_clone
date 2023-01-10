@@ -17,11 +17,12 @@ interface IDetailProps {
 
 function MovieDetail({ category, id }: IDetailProps) {
   const navigate = useNavigate();
+  
   const {
     data: detailData,
     isLoading: detailLoading,
     refetch: refetchDetail,
-  } = useQuery<IGetDetail>(["movie", `${category}_detail`, id], () =>
+  } = useQuery<IGetDetail>(["movie", `${id}_detail`], () =>
     getMovieDetail(id)
   );
   
@@ -29,7 +30,7 @@ function MovieDetail({ category, id }: IDetailProps) {
     data: creditData,
     isLoading: creditLoading,
     refetch: refetchCredit,
-  } = useQuery<IGetCredit>(["movie", `${category}_credit`, id], () =>
+  } = useQuery<IGetCredit>(["movie", `${id}_credit`], () =>
     getMovieCredit(id)
   );
 
@@ -98,12 +99,14 @@ function MovieDetail({ category, id }: IDetailProps) {
               <style.PosterMiniTitle>{detailData?.title}</style.PosterMiniTitle>
               <style.PosterInfomation>
                 <span>{sub_Openday}</span>
+
                 {detailData?.genres.slice(0, 3).map((genre, index) => (
                   <p id="genrs" key={genre.id}>
                     {genre.name}
                     {index !== detailData.genres.length - 1 && " · "}
                   </p>
                 ))}
+
                 <i>
                   ⭐ 
                 </i>
@@ -111,7 +114,7 @@ function MovieDetail({ category, id }: IDetailProps) {
                   {detailData?.vote_average ? 
                     (detailData?.vote_average).toFixed(1)
                   : 
-                    "not vote"
+                    "평점 투표 정보가 없습니다."
                   }
                 </span>
               </style.PosterInfomation>

@@ -36,7 +36,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
         data: detailData,
         isLoading: detailLoading,
         refetch: refetchDetail,
-    } = useQuery<IGetDetail>(["Series_detail", `${category}_detail`], () =>
+    } = useQuery<IGetDetail>(["Series_detail", `${tv_id}_detail`], () =>
         getSeriesDetail(tv_id)
     );
 
@@ -45,7 +45,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
         data: creditData,
         isLoading: creditLoading,
         refetch: refetchCredit,
-    } = useQuery<IGetCredit>(["Series_credit", `${category}_credit`], () =>
+    } = useQuery<IGetCredit>(["Series_credit", `${tv_id}_credit`], () =>
         getSeriesCredit(tv_id)
     );
 
@@ -120,7 +120,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                                 <span>
                                     {detailData?.vote_average
                                     ? (detailData?.vote_average).toFixed(1)
-                                    : "not vote"}
+                                    : "평점 투표 정보가 없습니다."}
                                 </span>
                             </style.PosterInfomation>
                             <style.PosterBox>

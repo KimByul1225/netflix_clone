@@ -57,8 +57,8 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
     const onBoxClicked = (movieId: number) => {
       navigate(`/movies/${movieId}`);
     };
-    const bigMovieMatch: PathMatch<string> | null =
-      useMatch("/movies/:movieId");
+    const bigMovieMatch: PathMatch<string> | null = useMatch("/movies/:movieId");
+    
     const nextIndex = () => {
       if (data) {
         if (leaving) {

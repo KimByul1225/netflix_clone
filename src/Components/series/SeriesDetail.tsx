@@ -91,7 +91,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                             </title>
                         </Helmet>
                         ) : (
-                        "Neonfilx"
+                        "Netfilx"
                         )}
                         <style.ModalBackDrop
                         bgphoto={

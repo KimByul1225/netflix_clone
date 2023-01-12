@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import noImage from "../../Images/noimage.png"
 
 export const infoVariants = {
   hover: {
@@ -320,18 +321,19 @@ export const DetailWrap = styled.div`
 `
 export const PosterTitle = styled.div`
   width: 100%;
-  height: 70px;
   color: ${props => props.theme.white.lighter};
   font-size: 45px;
   font-weight: 700;
   position: relative;
-  text-shadow: 1px 1px 2px #a8a8a8;
+  text-shadow: rgb(0 0 0) 3px 3px 3px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1; 
   -webkit-box-orient: vertical;
   word-wrap: break-word;
+  margin-bottom: 10px;
+  z-index: 1000;
   @media screen and (max-width: 1536px) {
     font-size: 32px;
     top: -75px;
@@ -345,8 +347,11 @@ export const PosterMiniTitle = styled.div`
   font-weight: 500;
   position: relative;
   letter-spacing: -0.005em;
-  color: #bababa;
+  color: #eee;
+  text-shadow: rgb(0 0 0) 3px 3px 3px;
+  padding-left: 20px;
   margin-bottom: 30px;
+  z-index: 1000;
   @media screen and (max-width: 1536px) {
     font-size: 14px;
   }
@@ -436,9 +441,6 @@ export const PosterDirector = styled.div`
     margin-right: 6px;
   }
 `;
-
-
-
 
 export const SearchWrapper = styled.div`
   margin-top: 80px;
@@ -532,20 +534,17 @@ export const SearchRowBox = styled(motion.div) <{ bgphoto: string }>`
 `;
 
 
-export const Search_MiniPoster = styled.div<{ bgphoto: string }>`
-  width: 220px;
-  height: 280px;
-  background-image: url(${props => props.bgphoto});
+export const DetailPoster = styled.div<{ bgphoto: string }>`
+  width: 300px;
+  height: 450px;
+  background-image: url(${props => props.bgphoto ? props.bgphoto : noImage});
+
   background-size: cover;
   background-position: center center;
   position: absolute;
-  top: 540px;
-  left: 50px;
-  @media screen and (max-width: 1536px) {
-    /* 15.6인치 노트북 기준 */
-    width: 160px;
-    height: 220px;
-    top: 370px;
-    left: 50px;
-  }
+  top: 60px;
+  left: 30px;
+  z-index: 999;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 15px;
 `;

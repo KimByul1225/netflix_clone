@@ -73,7 +73,7 @@ function MovieDetail({ category, id }: IDetailProps) {
                 </title>
               </Helmet>
             ) : (
-              "Neonfilx"
+              "Netfilx"
             )}
             <style.ModalBackDrop
               bgphoto={
@@ -84,15 +84,18 @@ function MovieDetail({ category, id }: IDetailProps) {
                   : null
               }
             />
-            {/* <Detail_Wrap_poster
-              style={{
-                backgroundImage: `url(${makeImagePath(
-                  searchMovie?.poster_path || "",
-                  "w500"
-                )})`,
-              }}
-            /> */}
+
+            
             <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
+            <style.DetailPoster
+              bgphoto={
+                detailData?.poster_path ? 
+                  makeImagePath(detailData.poster_path + "", "w500")
+                : 
+                  null
+              }
+            />
+              
 
             <style.DetailWrap>
               <style.PosterTitle>{detailData?.title}</style.PosterTitle>

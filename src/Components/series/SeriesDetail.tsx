@@ -94,15 +94,23 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                         "Netfilx"
                         )}
                         <style.ModalBackDrop
-                        bgphoto={
-                            detailData?.backdrop_path
-                            ? makeImagePath(detailData.backdrop_path + "", "w500")
-                            : detailData?.backdrop_path
-                            ? makeImagePath(detailData.poster_path + "", "w500")
-                            : null
-                        }
+                            bgphoto={
+                                detailData?.backdrop_path
+                                ? makeImagePath(detailData.backdrop_path + "", "w500")
+                                : detailData?.backdrop_path
+                                ? makeImagePath(detailData.poster_path + "", "w500")
+                                : null
+                            }
                         />
                         <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
+                        <style.DetailPoster
+                            bgphoto={
+                                detailData?.poster_path ? 
+                                makeImagePath(detailData.poster_path + "", "w500")
+                                : 
+                                null
+                            }
+                        />
                         <style.DetailWrap>
                             <style.PosterTitle>{detailData?.name}</style.PosterTitle>
                             <style.PosterMiniTitle>{detailData?.name}</style.PosterMiniTitle>

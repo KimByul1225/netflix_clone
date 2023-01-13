@@ -292,7 +292,7 @@ export const ModalBackDrop = styled.div<{ bgphoto: string }>`
       rgba(24, 24, 24, 1) 2%,
       rgba(0, 0, 0, 0) 60%
     ),
-    url(${props => props.bgphoto});
+    url(${props => props.bgphoto ? props.bgphoto : noImage});
   background-size: cover;
   background-position: center center;
   @media screen and (max-width: 1536px) {

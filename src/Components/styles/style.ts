@@ -264,9 +264,11 @@ export const NextBtn = styled.div`
 export const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
   z-index: 2;
 `;
 
@@ -305,12 +307,13 @@ export const CloseBtn = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 19px;
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
   cursor: pointer;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 20px;
   line-height: 40px;
   background-color: ${props => props.theme.black.darker};
 `;

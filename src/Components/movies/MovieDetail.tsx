@@ -43,12 +43,12 @@ function MovieDetail({ category, id }: IDetailProps) {
   const director = creditData?.crew.find(
     people => people.known_for_department === "Directing"
   );
-  const sub_Openday = detailData?.release_date.substring(0, 4);
+  const subOpenday = detailData?.release_date.substring(0, 4);
 
   return (
     <>
       {detailLoading && creditLoading ? (
-        ""
+        "Loading..."
       ) : (
         <>
           <style.Overlay
@@ -84,8 +84,6 @@ function MovieDetail({ category, id }: IDetailProps) {
                   : null
               }
             />
-
-            
             <style.CloseBtn onClick={() => navigate(-1)}>✕</style.CloseBtn>
             <style.DetailPoster
               bgphoto={
@@ -95,21 +93,17 @@ function MovieDetail({ category, id }: IDetailProps) {
                   null
               }
             />
-              
-
             <style.DetailWrap>
               <style.PosterTitle>{detailData?.title}</style.PosterTitle>
               <style.PosterMiniTitle>{detailData?.title}</style.PosterMiniTitle>
               <style.PosterInfomation>
-                <span>{sub_Openday}</span>
-
+                <span>{subOpenday}</span>
                 {detailData?.genres.slice(0, 3).map((genre, index) => (
                   <p id="genrs" key={genre.id}>
                     {genre.name}
                     {index !== detailData.genres.length - 1 && " · "}
                   </p>
                 ))}
-
                 <i>
                   ⭐ 
                 </i>

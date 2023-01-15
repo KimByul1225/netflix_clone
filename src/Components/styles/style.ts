@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import noImage from "../../Images/noimage.png"
+import noImage from "../../Images/noimage.png";
 
 export const infoVariants = {
   hover: {

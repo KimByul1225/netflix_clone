@@ -57,7 +57,7 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
     const onBoxClicked = (movieId: number) => {
       navigate(`/movies/${movieId}`);
     };
-    const bigMovieMatch: PathMatch<string> | null = useMatch("/movies/:movieId");
+    const movieMatch: PathMatch<string> | null = useMatch("/movies/:movieId");
     
     const nextIndex = () => {
       if (data) {
@@ -87,9 +87,7 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
       }
     };
 
-    const resultsData = data?.results
-      .slice(1)
-      .slice(offset * index, offset * index + offset);
+    const resultsData = data?.results.slice(1).slice(offset * index, offset * index + offset);
 
     return (
       <>
@@ -142,11 +140,10 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
           </style.NextBtn>
         </style.Slider>
 
-        {/* -- 오버레이 영역 -- */}
-        {bigMovieMatch ? (
+        {movieMatch ? (
           <>
             <MovieDetail
-              id={bigMovieMatch.params.movieId!}
+              id={movieMatch.params.movieId!}
               category={category}
             />
           </>

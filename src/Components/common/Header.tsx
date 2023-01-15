@@ -124,10 +124,8 @@ interface IForm {
 function Header() {
     const navigate = useNavigate();
     const navAnimation = useAnimation();
-
     const homeMatch = useMatch("/");
     const tvMatch = useMatch("series");
-    // const searchMatch = useMatch("search");
     const [searchOpen, setSearchOpen] = useState(false);
     
     const { scrollY } = useScroll();
@@ -188,11 +186,6 @@ function Header() {
                             Series {tvMatch && <ItemCircle layoutId="circle" />}
                         </Link>
                     </Item>
-                    {/* <Item>
-                        <Link to="search">
-                        Search {searchMatch && <ItemCircle layoutId="circle" />}
-                        </Link>
-                    </Item> */}
                 </Items>
             </Column>
             <Column>

@@ -2,13 +2,16 @@ import { useState } from "react";
 import * as style from "../styles/style";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
 import { makeImagePath } from "../../Utils/util";
 import { PathMatch, useMatch } from "react-router-dom";
-
 import { IGetResult } from "../../Api/api";
-
 import SeriesDetail from "./SeriesDetail";
+
+
+/**
+ * @description 시리즈(tv)페이지 각 슬라이더 컴포넌트
+ */
+
 
 // ----------Variants----
 const RowVariants = {

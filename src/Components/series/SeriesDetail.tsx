@@ -2,14 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
-
 import * as style from "../styles/style";
-
 import { makeImagePath } from "../../Utils/util";
-
 import { IGetCredit, IGetDetail, getSeriesCredit, getSeriesDetail } from "../../Api/api";
 
-// ----------Variants----
+/**
+ * @description 시리즈(tv) 상세 모달창
+ */
+
+interface IDetailProps {
+    category?: string;
+    tv_id: string;
+}
+
 const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 0.4 },
@@ -21,17 +26,9 @@ const modalVariants = {
     click: { opacity: 1, transition: { duration: 0.5 } },
     exit: { opacity: 0 },
 };
-// -----------------------
-
-interface IDetailProps {
-    category?: string;
-    tv_id: string;
-}
 
 function SeriesDetail({ category, tv_id }: IDetailProps) {
     const navigate = useNavigate();
-
-    // Detail API
     const {
         data: detailData,
         isLoading: detailLoading,
@@ -39,8 +36,6 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
     } = useQuery<IGetDetail>(["Series_detail", `${tv_id}_detail`], () =>
         getSeriesDetail(tv_id)
     );
-
-  // Credit API
     const {
         data: creditData,
         isLoading: creditLoading,
@@ -49,21 +44,17 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
         getSeriesCredit(tv_id)
     );
 
-    // 출연진 5명 불러오기
     const actor = creditData?.cast.slice(0, 5);
-    // 감독 정보
     const production = creditData?.crew.find(
         people =>
         people.known_for_department === "Production" ||
         people.known_for_department === "Directing"
     );
-  // 개봉 날짜
-    const sub_Openday = detailData?.first_air_date.substring(0, 4);
+    const subOpenday = detailData?.first_air_date.substring(0, 4);
 
-    // 이전 데이터 띄워지지 않게 refetch 처리
     useEffect(() => {
         refetchDetail();
-    }, [tv_id, refetchDetail, refetchCredit]); // id가 변경될 때마다 데이터 업데이트
+    }, [tv_id, refetchDetail, refetchCredit]); 
 
     return (
         <>
@@ -115,7 +106,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                             <style.PosterTitle>{detailData?.name}</style.PosterTitle>
                             <style.PosterMiniTitle>{detailData?.name}</style.PosterMiniTitle>
                             <style.PosterInfomation>
-                                <span>{sub_Openday}</span>
+                                <span>{subOpenday}</span>
                                 {detailData?.genres.slice(0, 3).map((genre, index) => (
                                     <p id="genrs" key={genre.id}>
                                     {genre.name}
@@ -162,9 +153,7 @@ function SeriesDetail({ category, tv_id }: IDetailProps) {
                                     </style.PosterDirector>
                                 </style.PosterStaff>
                             </style.PosterBox>
-
                         </style.DetailWrap>
-                        
                     </style.Modal>
                 </>
             )}

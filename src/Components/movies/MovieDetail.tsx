@@ -7,7 +7,7 @@ import { makeImagePath } from "../../Utils/util";
 import { useEffect } from "react";
 
 /**
- * @description 메인(영화)페이지 각 슬라이더 컴포넌트
+ * @description 영화 상세 모달창
  */
 
 interface IDetailProps {

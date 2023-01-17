@@ -4,6 +4,10 @@ import { makeImagePath } from "../../Utils/util";
 import { IGetSearch } from "../../Api/api";
 import SeriesDetail from "../series/SeriesDetail";
 
+/**
+ * @description 검색창 시리즈(tv) 영역 컴포넌트
+ */
+
 interface ISeriesprops {
   keyword: string;
   tvData: IGetSearch;
@@ -48,7 +52,9 @@ function SearchSeries({ tvData, keyword }: ISeriesprops) {
 
       {
         seiresMatch ? 
-          <SeriesDetail tv_id={seiresMatch.params.tv_id!} />
+          <SeriesDetail 
+            tv_id={seiresMatch.params.tv_id!} 
+          />
         : 
           null
       }

@@ -17,7 +17,7 @@ interface IBannerProps {
   category: string;
 }
 
-const RowVariants = {
+const rowVariants = {
   hidden: (isNext: boolean) => {
     return {
       x: isNext ? window.innerWidth : -window.innerWidth,
@@ -32,7 +32,7 @@ const RowVariants = {
     };
   },
 };
-const BoxHoverVariants = {
+const boxHoverVariants = {
   initial: { scale: 1 },
   hover: {
     scale: 1.3,
@@ -100,7 +100,7 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
           >
             <style.Row
               key={category + index}
-              variants={RowVariants}
+              variants={rowVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -112,7 +112,7 @@ const MovieSlider: React.FC<IBannerProps> = React.memo(
                   <style.RowBox
                     onClick={() => onBoxClicked(movie.id)}
                     key={category + movie.id}
-                    variants={BoxHoverVariants}
+                    variants={boxHoverVariants}
                     initial="initial"
                     whileHover="hover"
                     transition={{ type: "tween" }}

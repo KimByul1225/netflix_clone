@@ -4,6 +4,10 @@ import { makeImagePath } from "../../Utils/util";
 import * as style from "../styles/style";
 import MovieDetail from "../movies/MovieDetail";
 
+/**
+ * @description 검색창 영화 영역 컴포넌트
+ */
+
 interface Iprops {
   keyword: string;
   movieData: IGetSearch;
@@ -16,7 +20,6 @@ function SearchMovie({ keyword, movieData }: Iprops) {
   const movieMatch: PathMatch<string> | null = useMatch(
     "/search/movie/:movieId"
   );
-
 
   return (
     <>

@@ -39,7 +39,6 @@ export const BoxHoverVariants = {
   },
 };
 
-
 export const Wrapper = styled.div`
   overflow: hidden;
 `;

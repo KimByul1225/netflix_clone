@@ -6,32 +6,29 @@ import SeriesSlider from "../Components/series/SeriesSlider";
 import { getSeries, IGetResult } from "../Api/api";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * @description 시리즈 페이지
+ */
+
 function Series() {
   const navigate = useNavigate();
-  // popular API
   const { data: pop_data, isLoading: pop_Loading } = useQuery<IGetResult>(
     ["tv", "popular"],
     () => getSeries("popular")
   );
 
-  // top_rated API
   const { data: top_data, isLoading: top_Loading } = useQuery<IGetResult>(
     ["tv", "topRated"],
     () => getSeries("top_rated")
   );
 
-  // on_the_air API
   const { data: on_data, isLoading: on_Loading } = useQuery<IGetResult>(
     ["tv", "ontheair"],
     () => getSeries("on_the_air")
   );
 
-  // backdrop_path 또는 poster_path 없는 경우를 위함
-  const imagePath = pop_data?.results[0].backdrop_path
-    ? pop_data?.results[0].backdrop_path
-    : pop_data?.results[0].poster_path;
+  const imagePath = pop_data?.results[0].backdrop_path ? pop_data?.results[0].backdrop_path : pop_data?.results[0].poster_path;
 
-  // 배너 영역 > 모달 띄우는 버튼
   const nowId = pop_data?.results[0].id;
   return (
     <style.Wrapper>
@@ -42,7 +39,6 @@ function Series() {
           <Helmet>
             <title>Series</title>
           </Helmet>
-          {/* -- 배너 영역 --  */}
           <style.Banner bgphoto={makeImagePath(imagePath || "")}>
             <style.TitleOverviewWrap>
               <style.BannerTitle>{pop_data?.results[0].name}</style.BannerTitle>

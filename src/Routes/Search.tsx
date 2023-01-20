@@ -5,19 +5,20 @@ import { useEffect } from "react";
 import { getSearchMovie, getSearchTv, IGetSearch } from "../Api/api";
 import SearchMovie from "../Components/searchs/SearchMovie";
 import SearchSeries from "../Components/searchs/SearchSeries";
-
 import * as style from "../Components/styles/style";
+
+/**
+ * @description 검색결과 페이지
+ */
 
 function Search() {
   const location = useLocation();
   const keyword = new URLSearchParams(location.search).get("keyword");
-
   const { data: movie_Data, refetch: movie_refetch } = useQuery<IGetSearch>(
     ["search", "movie"],
     () => getSearchMovie(keyword!),
     { enabled: !!keyword }
   );
-
   const { data: tv_Data, refetch: tv_refetch } = useQuery<IGetSearch>(
     ["search", "tv"],
     () => getSearchTv(keyword!),
@@ -25,9 +26,6 @@ function Search() {
       enabled: !!keyword,
     }
   );
-
-
-
   useEffect(() => {
     movie_refetch();
     tv_refetch();
@@ -36,7 +34,6 @@ function Search() {
   const movieCount = movie_Data ?  movie_Data?.results.length : 0;
   const tvCount = tv_Data ?  tv_Data?.results.length : 0;
   const totalCount = movieCount +  tvCount;
- 
   
   
   return (
@@ -46,7 +43,7 @@ function Search() {
           <title>Search</title>
         </Helmet>
         {keyword === null ? 
-          <></>
+          null
         : 
           totalCount === 0  ?
             <style.NotingWrap>
@@ -63,7 +60,6 @@ function Search() {
               <style.SearchingCount>
                 총 <b>{totalCount}</b> 건의 검색 결과가 검색 되었습니다.
               </style.SearchingCount>
-              {/* 검색 결과 */}
               <SearchMovie 
                 keyword={keyword} 
                 movieData={movie_Data!}

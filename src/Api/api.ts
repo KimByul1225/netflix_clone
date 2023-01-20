@@ -2,16 +2,13 @@ const API_KEY = "ebbf66e74bb3cfe2fa2f94d37ab8ebb5";
 const BASE_PATH = "https://api.themoviedb.org/3";
 
 interface IResult {
-    // 공통
     id: number;
     backdrop_path: string;
     overview: string;
     release_date: string;
     poster_path: string;
     vote_average: string;
-    // ------ seires 정보
     name: string;
-    // ------ movies 정보
     title?: string;
 }
 
@@ -27,7 +24,6 @@ export interface IGetResult {
 }
 
 export interface IGetDetail {
-    // 공통
     id: number;
     backdrop_path: string;
     poster_path: string;
@@ -40,10 +36,8 @@ export interface IGetDetail {
             name: string;
         }
     ];
-    // ------ movies 정보
     title: string;
     original_title?: string;
-    // ------ seires 정보
     name: string;
     original_name?: string;
     first_air_date: string;
@@ -51,7 +45,6 @@ export interface IGetDetail {
 }
 
 export interface IGetCredit {
-    // 공통
     id: number;
     cast: [
         {
@@ -79,8 +72,8 @@ export interface ISearchResult {
     vote_average: number;
     overview: string;
     original_title: string;
-    release_date?: string; // 영화
-    first_air_date?: string; // 시리즈
+    release_date?: string; 
+    first_air_date?: string;
     genres: [
         {
             id: number;
@@ -125,7 +118,6 @@ export function getMovieCredit(id: string) {
     });
 }
 
-// -------- Series(tv)
 export function getSeries(tvCategory: string) {
     return fetch(
         `${BASE_PATH}/tv/${tvCategory}?api_key=${API_KEY}&language=en-US&page=1`
@@ -151,7 +143,6 @@ export function getSeriesCredit(tv_id: string) {
 }
 
 
-// -------- Search movie
 export function getSearchMovie(keyword: string) {
     return fetch(
         `${BASE_PATH}/search/movie?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1`
@@ -160,7 +151,6 @@ export function getSearchMovie(keyword: string) {
     });
 }
 
-// -------- Search Tv
 export function getSearchTv(keyword: string) {
     return fetch(
         `${BASE_PATH}/search/tv?api_key=${API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`

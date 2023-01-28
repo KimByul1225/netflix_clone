@@ -2,7 +2,7 @@
 
 # Netflix Clone
 <br />
-<!-- <img height="200" src="./readme/logo.png" /> -->
+<img height="200" src="./readme/logo.png" />
 <br />
 <a display="block" href="#">https://github.com/KimByul1225/netflix_clone</a>
 <br /><br />

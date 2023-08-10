@@ -4,7 +4,7 @@
 <br />
 <img height="200" src="./readme/logo.png" />
 <br />
-<a display="block" href="#">https://github.com/KimByul1225/netflix_clone</a>
+<a display="block" href="https://byul-netflix-clone.netlify.app/">https://byul-netflix-clone.netlify.app/</a>
 <br /><br />
 </div>
 <br />
